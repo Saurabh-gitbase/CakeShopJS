@@ -235,3 +235,5 @@ document.getElementById("search").addEventListener("submit", function (event) {
   loadCard(newProd);
   
 });
+
+allProd();
