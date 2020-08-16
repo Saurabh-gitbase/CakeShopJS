@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
-    <script src="index.js"></script>
+    <script defer src="index.js"></script>
     <title>CakeShop</title>
   </head>
   <body>
@@ -19,8 +19,8 @@
         </button>
   
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <form class="form-inline my-2 my-lg-0 ml-auto" id="form" onsubmit="handleSubmit()">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="search">
+            <form class="form-inline my-2 my-lg-0 ml-auto" id="search" action="#" method="GET">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" id="searchval">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
         </div>

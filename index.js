@@ -98,124 +98,140 @@ let products = {
   ],
   doughnuts: [
     {
-        name: "Glazed Donuts",
-        imgURL:
-          "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/4-21-2-min.jpg",
-        price: "$10",
-      },
-      {
-        name: "Sprinkled Donuts",
-        imgURL:
-          "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/5-21-2-min.jpg",
-        price: "$10",
-      },
-      {
-        name: "Jelly Donuts",
-        imgURL:
-          "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/6-21-2-min.jpg",
-        price: "$10",
-      },
-      {
-        name: "Cronuts",
-        imgURL:
-          "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/11-21-2-min.jpg",
-        price: "$10",
-      },
-      {
-        name: "Boston Cream Donut",
-        imgURL:
-          "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/8-21-2-min.jpg",
-        price: "$10",
-      },
+      name: "Glazed Donuts",
+      imgURL:
+        "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/4-21-2-min.jpg",
+      price: "$10",
+    },
+    {
+      name: "Sprinkled Donuts",
+      imgURL:
+        "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/5-21-2-min.jpg",
+      price: "$10",
+    },
+    {
+      name: "Jelly Donuts",
+      imgURL:
+        "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/6-21-2-min.jpg",
+      price: "$10",
+    },
+    {
+      name: "Cronuts",
+      imgURL:
+        "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/11-21-2-min.jpg",
+      price: "$10",
+    },
+    {
+      name: "Boston Cream Donut",
+      imgURL:
+        "https://v1.nitrocdn.com/SMAjQjQrSfukicyrZHRearuvaVtcHpQg/assets/static/source/rev-d98cf76/wp-content/uploads/2020/05/8-21-2-min.jpg",
+      price: "$10",
+    },
   ],
 };
 
-var handleSubmit = () => {
-  const event = document.getElementById("form");
-  event.preventDefault();
-  const val = document.getElementById("search").value;
-  console.log(val);
-
-}
-
-// function logSubmit(event) {
-//   log.textContent = `Form Submitted! Time stamp: ${event.timeStamp}`;
-//   event.preventDefault();
-// }
-// const form = document.getElementById('form');
-// form.addEventListener('submit', logSubmit);
-
-// const form = document.getElementById('form');
-// form.addEventListener('submit', logSubmit); 
-
-
-
-var loadCard = (allprod) => {
-  let outerdiv = document.getElementById("outerdiv");
+var loadCard = (productList) => {
+  const outerdiv = document.getElementById("outerdiv");
   outerdiv.removeChild(outerdiv.firstElementChild);
   
-  let cardBox = document.createElement('div');
-  cardBox.id = "products";
-  cardBox.style.paddingBottom = "50px";
-
-  for(let item of allprod)
+  if (productList.length) 
   {
-    let cardDetails = document.createElement('div');
-    cardDetails.className = "card";
-    cardDetails.style.width = "18rem";
-    cardDetails.style.boxShadow = "35px";
+    const cardBox = document.createElement("div");
+    cardBox.id = "products";
+    cardBox.style.paddingBottom = "50px";
 
-    let image = document.createElement('img');
-    image.className = "card-img-top";
-    image.src = item.imgURL;
-    image.style.width = "286px";
-    image.style.height = "180px";
-    image.alt = item.name;
+    for (let item of productList) {
+      const cardDetails = document.createElement("div");
+      cardDetails.className = "card";
+      cardDetails.style.width = "18rem";
+      cardDetails.style.boxShadow = "35px";
 
-    let innerdiv = document.createElement('div');
-    innerdiv.className = "card-body d-flex justify-content-between align-items-center";
-    let name = document.createElement('p');
-    name.className = "card-text";
-    name.innerHTML = item.name;
+      const image = document.createElement("img");
+      image.className = "card-img-top";
+      image.src = item.imgURL;
+      image.style.width = "286px";
+      image.style.height = "180px";
+      image.alt = item.name;
 
-    let pricedetail = document.createElement('p');
-    pricedetail.className = "card-text";
-    pricedetail.innerHTML = item.price;
-    pricedetail.style.fontSize = "1.5em";
+      const innerdiv = document.createElement("div");
+      innerdiv.className =
+        "card-body d-flex justify-content-between align-items-center";
+      const name = document.createElement("p");
+      name.className = "card-text";
+      name.innerHTML = item.name;
 
-    innerdiv.appendChild(name);
-    innerdiv.appendChild(pricedetail);
-    
-    cardDetails.appendChild(image);
-    cardDetails.appendChild(innerdiv);
-    cardBox.appendChild(cardDetails);
+      const pricedetail = document.createElement("p");
+      pricedetail.className = "card-text";
+      pricedetail.innerHTML = item.price;
+      pricedetail.style.fontSize = "1.5em";
+
+      innerdiv.appendChild(name);
+      innerdiv.appendChild(pricedetail);
+
+      cardDetails.appendChild(image);
+      cardDetails.appendChild(innerdiv);
+      cardBox.appendChild(cardDetails);
+    }
+    outerdiv.appendChild(cardBox);
+  } 
+  else {
+    const errorCard = document.createElement("div");
+    errorCard.className = "jumbotron jumbotron-fluid alert-danger";
+    const innerdiv = document.createElement("div");
+    innerdiv.className = "container text-center";
+    const innerh1 = document.createElement("h1");
+    innerh1.className = "display-4";
+    innerh1.innerHTML = "Not Found !!!";
+    innerdiv.appendChild(innerh1);
+    errorCard.appendChild(innerdiv);
+    outerdiv.appendChild(errorCard);
   }
 
-  outerdiv.appendChild(cardBox);
-}
+};
+
+let allprod = [
+  ...products.cakes,
+  ...products.cupcakes,
+  ...products.sweets,
+  ...products.doughnuts,
+];
 
 var allProd = () => {
-  let allprod = [...products.cakes,...products.cupcakes,...products.sweets,...products.doughnuts];
   loadCard(allprod);
-}
+};
 
-var cake= () => {
-  let allprod = [...products.cakes];
-  loadCard(allprod);
-}
+var cake = () => {
+  const prod = [...products.cakes];
+  loadCard(prod);
+};
 
-var cupCakes= () => {
-  let allprod = [...products.cupcakes];
-  loadCard(allprod);
-}
+var cupCakes = () => {
+  const prod = [...products.cupcakes];
+  loadCard(prod);
+};
 
-var sweets= () => {
-  let allprod = [...products.sweets];
-  loadCard(allprod);
-}
+var sweets = () => {
+  const prod = [...products.sweets];
+  loadCard(prod);
+};
 
-var doughnuts= () => {
-  let allprod = [...products.doughnuts];
-  loadCard(allprod);
-}
+var doughnuts = () => {
+  const prod = [...products.doughnuts];
+  loadCard(prod);
+};
 
+document.getElementById("search").addEventListener("submit", function (event) {
+  console.log("hi");
+  event.preventDefault();
+  const itemval = document.getElementById("searchval").value;
+  let newProd = [];
+  for (let item of allprod) {
+    let tempval = item.name.toLowerCase();
+    if (tempval.includes(itemval.toLowerCase())) {
+      newProd.push(item);
+    }
+  }
+  document.getElementById("searchval").value = "";
+  loadCard(newProd);
+  
+});
