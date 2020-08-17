@@ -7,11 +7,23 @@ body {
 #products {
     width: 100%;
     height: auto;
-    display: grid;
-    grid-gap: 50px;
-    grid-template-columns: auto auto auto;
-    padding-right: auto;
-    padding-left: 50px;
+    /* display: grid; */
+    /* grid-gap: 50px;
+    grid-template-columns: auto auto auto; */
+    display: flex;
+    flex-wrap: wrap;
+    /* padding-right: auto; */
+    /* background-color: aquamarine; */
+    /* padding-left: 50px; */
     font-size: 1.3em;
     font-weight: 600;
+}
+
+.card {
+    /* margin-left: 20px; */
+    /* margin-left:auto;
+    margin-right: auto;
+    margin-top: 20px;
+    margin-bottom: 20px; */
+    margin: 20px auto;
 }
